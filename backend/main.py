@@ -17,7 +17,6 @@ app.add_middleware(
         "http://localhost:5173",
         "https://portale-prin.vercel.app",
     ],
-    #allow_origin_regex=r"^https://.*\.vercel\.app$",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -158,4 +157,8 @@ def login(payload: LoginReq):
         algorithm=JWT_ALG,
     )
     return {"access_token": token, "token_type": "bearer"}
+
+@app.get("/")
+def root():
+    return {"status": "ok"}
 
