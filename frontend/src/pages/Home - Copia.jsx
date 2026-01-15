@@ -1,16 +1,4 @@
-import { useEffect, useState } from "react";
-export default function Home() {
-const [items, setItems] = useState([]);
-
-  useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/publications`)
-      .then((r) => r.json())
-      .then(setItems)
-      .catch(() => setItems([]));
-  }, []);
-
-  const articles = items.filter((x) => x.type === "article");
-  const reports = items.filter((x) => x.type === "report");
+export default function App() {
   return (
     <div className="min-h-screen bg-[#f5f7fb] text-slate-800">
       {/* Header */}
@@ -81,24 +69,15 @@ const [items, setItems] = useState([]);
           </div>
 
           <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-  {articles.length === 0 ? (
-    <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200 text-slate-600">
-      Nessun articolo ancora.
-    </div>
-  ) : (
-    articles.map((a) => (
-      <CardArticolo
-        key={a.id}
-        titolo={a.title}
-        data={new Date(a.created_at).toLocaleDateString("it-IT")}
-        abstract={a.description}
-        autori={a.authors}
-        cta="Vai al Sito"
-        href={a.url || "#"}
-      />
-    ))
-  )}
-</div>
+            <CardArticolo
+              titolo="AI in Medicina"
+              data="14 gennaio 2026"
+              abstract="Studio su deep learning"
+              autori="Dr. Rossi"
+              cta="Vai al Sito"
+              href="#"
+            />
+          </div>
         </section>
 
         {/* Report */}
@@ -131,24 +110,15 @@ const [items, setItems] = useState([]);
           </div>
 
           <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-  {reports.length === 0 ? (
-    <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200 text-slate-600">
-      Nessun report ancora.
-    </div>
-  ) : (
-    reports.map((r) => (
-      <CardReport
-        key={r.id}
-        titolo={r.title}
-        data={new Date(r.created_at).toLocaleDateString("it-IT")}
-        descrizione={r.description}
-        autori={r.authors}
-        filename={r.file_name || ""}
-        size=""
-      />
-    ))
-  )}
-</div>
+            <CardReport
+              titolo="Report Annuale 2024"
+              data="14 gennaio 2026"
+              descrizione="Report completo delle attività"
+              autori="Team Ricerca"
+              filename="599f57ab-8f72-44cd-b4e2-c48b6b42910d.pdf"
+              size="0.0 MB"
+            />
+          </div>
         </section>
       </main>
 

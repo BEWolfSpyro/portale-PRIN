@@ -13,17 +13,10 @@ app = FastAPI(title="Portale Ricerca Scientifica API")
 # CORS: permette al frontend (localhost e Vercel) di chiamare l'API
 app.add_middleware(
     CORSMiddleware,
-    app.add_middleware(
-    CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
         "https://portale-prin.vercel.app",
     ],
-    allow_origin_regex=r"^https://.*\.vercel\.app$",
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
