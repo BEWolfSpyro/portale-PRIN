@@ -7,31 +7,19 @@ export default function AdminLogin() {
   const [error, setError] = useState("");
 
   async function onSubmit(e) {
-  e.preventDefault();
-  setError("");
-  setLoading(true);
+    e.preventDefault();
+    setError("");
+    setLoading(true);
 
-  try {
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
-
-    if (!res.ok) {
-      if (res.status === 401) throw new Error("Credenziali non valide");
-      throw new Error("Errore server");
-    }
-
-    const data = await res.json();
-    localStorage.setItem("admin_token", data.access_token);
-    window.location.href = "/admin/dashboard";
-  } catch (err) {
-    setError(err.message || "Errore");
-  } finally {
-    setLoading(false);
+    // Per ora NON chiamiamo backend: simuliamo login ok
+    // Step successivo: lo colleghiamo davvero con JWT.
+    setTimeout(() => {
+      setLoading(false);
+      // Simuliamo token
+      localStorage.setItem("admin_token", "demo-token");
+      window.location.href = "/admin/dashboard";
+    }, 600);
   }
-}
 
   return (
     <div className="min-h-screen bg-[#f5f7fb] text-slate-800">
