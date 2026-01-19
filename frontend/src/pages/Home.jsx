@@ -208,7 +208,7 @@ function CardArticolo({ titolo, data, abstract, autori, cta, href }) {
   );
 }
 
-function CardReport({ titolo, data, descrizione, autori, filename, size }) {
+function CardReport({ titolo, data, descrizione, autori, cta, href }) {
   return (
     <CardBase>
       <div className="text-lg font-semibold">{titolo}</div>
@@ -219,38 +219,32 @@ function CardReport({ titolo, data, descrizione, autori, filename, size }) {
       <div className="mt-6 text-sm font-semibold">Autori:</div>
       <div className="mt-1 text-sm text-slate-600">{autori}</div>
 
-      <div className="mt-6 flex items-center justify-between text-xs text-slate-500">
-        <span className="truncate">{filename}</span>
-        <span>{size}</span>
-      </div>
-
-      <button
-        type="button"
+            <a
+        href={href}
         className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#2f6fb6] px-4 py-3 text-sm font-semibold text-white hover:brightness-95"
       >
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
           <path
-            d="M12 3v12"
+            d="M14 3h7v7"
             stroke="currentColor"
             strokeWidth="2"
             strokeLinecap="round"
           />
           <path
-            d="m7 10 5 5 5-5"
+            d="M10 14 21 3"
             stroke="currentColor"
             strokeWidth="2"
             strokeLinecap="round"
-            strokeLinejoin="round"
           />
           <path
-            d="M4 21h16"
+            d="M21 14v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h6"
             stroke="currentColor"
             strokeWidth="2"
             strokeLinecap="round"
           />
         </svg>
-        Scarica Report
-      </button>
+        {cta}
+      </a>
     </CardBase>
   );
 }
