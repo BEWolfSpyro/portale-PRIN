@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Header from "../components/Header";
 export default function Home() {
 const [items, setItems] = useState([]);
 
@@ -14,41 +15,7 @@ const [items, setItems] = useState([]);
   return (
     <div className="min-h-screen bg-[#f5f7fb] text-slate-800">
       {/* Header */}
-      <header className="bg-[#2B65AF] text-white">
-        <div className="relative flex h-20 w-full items-center px-6">
-          
-	{/* Logo sinistra (estremo sinistro)*/}
-    <div className="absolute left-6 flex h-full items-center">
-      <img
-        src="/logos/nextgeneu1.png"
-        alt="Logo sinistra"
-        className="h-full object-contain"
-      />
-    </div>
-
-	{/* Titolo centrato davvero */}
-    <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 text-lg font-semibold">
-      Portal PRIN 2022 - SCORET
-    </div>
-
-	{/* Destra: bottone + logo */}
-    <div className="absolute right-6 flex h-full items-center gap-4">
-      <a
-        href="/admin"
-        className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-[#2B65AF] shadow-sm hover:bg-slate-50"
-      >
-        Admin Area
-      </a>
-
-      <img
-        src="/logos/Italiadomani1.png"
-        alt="Logo destra"
-        className="h-full object-contain"
-      />
-    </div>
-
-  </div>
-      </header>
+      <Header />
 
       {/* Hero */}
       <section className="bg-gradient-to-b from-white to-[#f5f7fb]">

@@ -38,50 +38,7 @@ useEffect(() => {
 
   return (
     <div className="min-h-screen bg-[#f5f7fb] text-slate-800">
-      <header className="bg-[#2B65AF] text-white">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <div className="flex items-center gap-3">
-            <div className="grid h-9 w-9 place-items-center rounded-md bg-white/10">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M20 2H6.5A2.5 2.5 0 0 0 4 4.5V19"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M8 6h8M8 10h8"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </div>
-            <div className="text-lg font-semibold">Dashboard Admin</div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <a
-              href="/"
-              className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-[#2B65AF] shadow-sm hover:bg-slate-50"
-            >
-              Homepage
-            </a>
-            <button
-              onClick={logout}
-              className="rounded-md bg-white/10 px-4 py-2 text-sm font-semibold hover:bg-white/20"
-            >
-              Logout
-            </button>
-          </div>
-        </div>
-      </header>
+      <Header rightLinkLabel="Homepage" rightLinkHref="/" />
 
       <main className="mx-auto max-w-6xl px-6 py-12">
         <h1 className="text-3xl font-bold">Pannello di Controllo</h1>
