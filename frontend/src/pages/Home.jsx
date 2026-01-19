@@ -20,7 +20,7 @@ const [items, setItems] = useState([]);
 	{/* Logo sinistra */}
     <div className="flex items-center">
       <img
-        src="/logos/logo-sinistra.png"
+        src="/logos/nextgeneu1.png"
         alt="Logo sinistra"
         className="h-10 object-contain"
       />
@@ -41,7 +41,7 @@ const [items, setItems] = useState([]);
       </a>
 
       <img
-        src="/logos/logo-destra.png"
+        src="/logos/Italiadomani1.png"
         alt="Logo destra"
         className="h-10 object-contain"
       />
