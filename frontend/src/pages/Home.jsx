@@ -37,7 +37,7 @@ const [items, setItems] = useState([]);
         href="/admin"
         className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-[#2B65AF] shadow-sm hover:bg-slate-50"
       >
-        Area Admin
+        Admin Area
       </a>
 
       <img
