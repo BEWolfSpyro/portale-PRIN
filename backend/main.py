@@ -10,7 +10,9 @@ from pymongo import MongoClient
 from bson import ObjectId
 from fastapi import Request
 import os
-
+from dotenv import load_dotenv
+from pathlib import Path
+load_dotenv(Path(__file__).with_name(".env"))
 
 app = FastAPI(title="Portale Ricerca Scientifica API")
 
@@ -19,18 +21,22 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
+	"http://127.0.0.1:5173",
         "https://portale-prin.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-),
+)
 
 # CONFIG
 JWT_SECRET = os.getenv("JWT_SECRET", "dev-secret-change-me")
 JWT_ALG = "HS256"
 JWT_EXPIRES_MIN = 60 * 24  # 24h
 MONGODB_URI = os.getenv("MONGODB_URI")
+print("MONGODB_URI letta?", "SI" if MONGODB_URI else "NO")
+if not MONGODB_URI:
+    raise RuntimeError("MONGODB_URI non impostata. Crea backend/.env con MONGODB_URI=mongodb+srv://...")
 MONGODB_DB = os.getenv("MONGODB_DB", "portale_prin")
 
 mongo_client = MongoClient(MONGODB_URI)
@@ -120,8 +126,8 @@ def create_publication(
 ):
     if payload.type == "article" and not payload.url:
         raise HTTPException(status_code=400, detail="Per un articolo serve la URL")
-    if payload.type == "report" and not payload.file_name:
-        raise HTTPException(status_code=400, detail="Per un report serve file_name")
+    if payload.type == "report" and not payload.url:
+    	raise HTTPException(status_code=400, detail="Per un report serve la URL")
 
     doc = {
         "type": payload.type,
@@ -167,6 +173,13 @@ def login(payload: LoginReq):
         algorithm=JWT_ALG,
     )
     return {"access_token": token, "token_type": "bearer"}
+
+@app.get("/debug/env")
+def debug_env():
+    return {
+        "MONGODB_URI_set": bool(os.getenv("MONGODB_URI")),
+        "MONGODB_DB": os.getenv("MONGODB_DB"),
+    }
 
 @app.get("/")
 def root():
