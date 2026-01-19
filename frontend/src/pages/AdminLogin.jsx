@@ -36,7 +36,7 @@ export default function AdminLogin() {
   return (
     <div className="min-h-screen bg-[#f5f7fb] text-slate-800">
       {/* Header */}
-      <header className="bg-[#2f6fb6] text-white">
+      <header className="bg-[#5A9BD5] text-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-3">
             <div className="grid h-9 w-9 place-items-center rounded-md bg-white/10">
@@ -66,7 +66,7 @@ export default function AdminLogin() {
 
           <a
             href="/"
-            className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-[#2f6fb6] shadow-sm hover:bg-slate-50"
+            className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-[#5A9BD5] shadow-sm hover:bg-slate-50"
           >
             Torna al sito
           </a>
@@ -88,7 +88,7 @@ export default function AdminLogin() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="mt-2 w-full rounded-md border border-slate-200 bg-white px-4 py-3 text-sm outline-none ring-[#2f6fb6] focus:ring-2"
+                className="mt-2 w-full rounded-md border border-slate-200 bg-white px-4 py-3 text-sm outline-none ring-[#5A9BD5] focus:ring-2"
                 placeholder="xxx@yyy.zzz"
                 required
               />
@@ -100,7 +100,7 @@ export default function AdminLogin() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="mt-2 w-full rounded-md border border-slate-200 bg-white px-4 py-3 text-sm outline-none ring-[#2f6fb6] focus:ring-2"
+                className="mt-2 w-full rounded-md border border-slate-200 bg-white px-4 py-3 text-sm outline-none ring-[#5A9BD5] focus:ring-2"
                 placeholder="********"
                 required
               />
@@ -115,7 +115,7 @@ export default function AdminLogin() {
             <button
               type="submit"
               disabled={loading}
-              className="inline-flex w-full items-center justify-center rounded-md bg-[#2f6fb6] px-4 py-3 text-sm font-semibold text-white hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-70"
+              className="inline-flex w-full items-center justify-center rounded-md bg-[#5A9BD5] px-4 py-3 text-sm font-semibold text-white hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-70"
             >
               {loading ? "Accesso..." : "Accedi"}
             </button>

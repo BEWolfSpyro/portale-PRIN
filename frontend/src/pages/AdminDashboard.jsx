@@ -38,7 +38,7 @@ useEffect(() => {
 
   return (
     <div className="min-h-screen bg-[#f5f7fb] text-slate-800">
-      <header className="bg-[#2f6fb6] text-white">
+      <header className="bg-[#5A9BD5] text-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-3">
             <div className="grid h-9 w-9 place-items-center rounded-md bg-white/10">
@@ -69,7 +69,7 @@ useEffect(() => {
           <div className="flex items-center gap-3">
             <a
               href="/"
-              className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-[#2f6fb6] shadow-sm hover:bg-slate-50"
+              className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-[#5A9BD5] shadow-sm hover:bg-slate-50"
             >
               Vai al sito
             </a>
@@ -115,7 +115,7 @@ useEffect(() => {
 
             <button
   type="button"
-  className="rounded-md bg-[#2f6fb6] px-4 py-2 text-sm font-semibold text-white hover:brightness-95"
+  className="rounded-md bg-[#5A9BD5] px-4 py-2 text-sm font-semibold text-white hover:brightness-95"
   onClick={() => setShowModal(true)}
 >
   + Nuova pubblicazione
@@ -158,7 +158,7 @@ useEffect(() => {
               href={p.url}
               target="_blank"
               rel="noreferrer"
-              className="mt-2 inline-block text-sm font-semibold text-[#2f6fb6] hover:underline"
+              className="mt-2 inline-block text-sm font-semibold text-[#5A9BD5] hover:underline"
             >
               Vai all'articolo
             </a>
@@ -169,7 +169,7 @@ useEffect(() => {
               href={p.url}
               target="_blank"
               rel="noreferrer"
-              className="mt-2 inline-block text-sm font-semibold text-[#2f6fb6] hover:underline"
+              className="mt-2 inline-block text-sm font-semibold text-[#5A9BD5] hover:underline"
             >
               Vai al report
             </a>
@@ -305,7 +305,7 @@ useEffect(() => {
           Annulla
         </button>
         <button
-  className="rounded-md bg-[#2f6fb6] px-4 py-2 text-sm font-semibold text-white disabled:opacity-70"
+  className="rounded-md bg-[#5A9BD5] px-4 py-2 text-sm font-semibold text-white disabled:opacity-70"
   disabled={saving}
   onClick={async () => {
     setModalError("");

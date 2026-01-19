@@ -14,7 +14,7 @@ const [items, setItems] = useState([]);
   return (
     <div className="min-h-screen bg-[#f5f7fb] text-slate-800">
       {/* Header */}
-      <header className="bg-[#2f6fb6] text-white">
+      <header className="bg-[#5A9BD5] text-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-3">
             <div className="grid h-9 w-9 place-items-center rounded-md bg-white/10">
@@ -44,7 +44,7 @@ const [items, setItems] = useState([]);
 
           <a
             href="/admin"
-            className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-[#2f6fb6] shadow-sm hover:bg-slate-50"
+            className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-[#5A9BD5] shadow-sm hover:bg-slate-50"
           >
             Area Admin
           </a>
@@ -71,10 +71,10 @@ const [items, setItems] = useState([]);
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <path
                   d="M7 3h7l3 3v15a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3Z"
-                  stroke="#2f6fb6"
+                  stroke="#5A9BD5"
                   strokeWidth="2"
                 />
-                <path d="M14 3v4a2 2 0 0 0 2 2h4" stroke="#2f6fb6" strokeWidth="2" />
+                <path d="M14 3v4a2 2 0 0 0 2 2h4" stroke="#5A9BD5" strokeWidth="2" />
               </svg>
             </div>
             <h2 className="text-2xl font-semibold">Articoli Scientifici</h2>
@@ -108,20 +108,20 @@ const [items, setItems] = useState([]);
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                 <path
                   d="M12 3v12"
-                  stroke="#2f6fb6"
+                  stroke="#5A9BD5"
                   strokeWidth="2"
                   strokeLinecap="round"
                 />
                 <path
                   d="m7 10 5 5 5-5"
-                  stroke="#2f6fb6"
+                  stroke="#5A9BD5"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
                 <path
                   d="M4 21h16"
-                  stroke="#2f6fb6"
+                  stroke="#5A9BD5"
                   strokeWidth="2"
                   strokeLinecap="round"
                 />
@@ -180,7 +180,7 @@ function CardArticolo({ titolo, data, abstract, autori, cta, href }) {
 
       <a
         href={href}
-        className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#2f6fb6] px-4 py-3 text-sm font-semibold text-white hover:brightness-95"
+        className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#5A9BD5] px-4 py-3 text-sm font-semibold text-white hover:brightness-95"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
           <path
@@ -221,7 +221,7 @@ function CardReport({ titolo, data, descrizione, autori, cta, href }) {
 
       <a
         href={href}
-        className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#2f6fb6] px-4 py-3 text-sm font-semibold text-white hover:brightness-95"
+        className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#5A9BD5] px-4 py-3 text-sm font-semibold text-white hover:brightness-95"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
           <path
