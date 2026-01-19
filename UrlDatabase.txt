@@ -1,0 +1,1 @@
+mongodb+srv://cosiurlaro_db_user:bs4vJtt7XgQVhkrf@clusterscoret.ws3hqmq.mongodb.net/?appName=ClusterSCORET

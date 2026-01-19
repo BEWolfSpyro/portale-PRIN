@@ -93,7 +93,7 @@ const [items, setItems] = useState([]);
         data={new Date(a.created_at).toLocaleDateString("it-IT")}
         abstract={a.description}
         autori={a.authors}
-        cta="Vai all'articolo"
+        cta="Vai al Sito"
         href={a.url || "#"}
       />
     ))
@@ -143,8 +143,8 @@ const [items, setItems] = useState([]);
         data={new Date(r.created_at).toLocaleDateString("it-IT")}
         descrizione={r.description}
         autori={r.authors}
-        cta="Vai all'articolo"
-        href={a.url || "#"}
+        filename={r.file_name || ""}
+        size=""
       />
     ))
   )}

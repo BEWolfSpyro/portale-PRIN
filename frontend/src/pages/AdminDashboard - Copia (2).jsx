@@ -161,19 +161,14 @@ useEffect(() => {
               rel="noreferrer"
               className="mt-2 inline-block text-sm font-semibold text-[#2f6fb6] hover:underline"
             >
-              Vai all'articolo
+              Vai al sito
             </a>
           )}
 
-          {p.type === "report" && p.url && (
-            <a
-              href={p.url}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-2 inline-block text-sm font-semibold text-[#2f6fb6] hover:underline"
-            >
-              Vai al report
-            </a>
+          {p.type === "report" && p.file_name && (
+            <div className="mt-2 text-xs text-slate-500">
+              {p.file_name}
+            </div>
           )}
         </div>
 
@@ -278,13 +273,13 @@ useEffect(() => {
 
 {pubType === "report" && (
   <div className="mt-4">
-    <label className="text-sm font-semibold">URL articolo</label>
+    <label className="text-sm font-semibold">Nome file report</label>
     <input
-      value={url}
-      onChange={(e) => setUrl(e.target.value)}
-      type="url"
+      value={fileName}
+      onChange={(e) => setFileName(e.target.value)}
+      type="text"
       className="mt-2 w-full rounded-md border border-slate-200 px-3 py-2 text-sm"
-      placeholder="https://..."
+      placeholder="report-2026.pdf"
     />
   </div>
 )}
@@ -317,7 +312,7 @@ useEffect(() => {
       const body =
         pubType === "article"
           ? { type: "article", title, authors, description, url }
-          : { type: "report", title, authors, description, url };
+          : { type: "report", title, authors, description, file_name: fileName };
 
       const res = await fetch(
         `${import.meta.env.VITE_API_URL}/admin/publications`,
@@ -341,6 +336,7 @@ useEffect(() => {
       setAuthors("");
       setDescription("");
       setUrl("");
+      setFileName("");
 
       setShowModal(false);
       fetchPublications();
