@@ -6,6 +6,9 @@ from datetime import datetime, timedelta
 from fastapi import Depends, Header
 from typing import Optional, Literal
 from uuid import uuid4
+from pymongo import MongoClient
+from bson import ObjectId
+from fastapi import Request
 import os
 
 app = FastAPI(title="Portale Ricerca Scientifica API")
@@ -26,6 +29,12 @@ app.add_middleware(
 JWT_SECRET = os.getenv("JWT_SECRET", "dev-secret-change-me")
 JWT_ALG = "HS256"
 JWT_EXPIRES_MIN = 60 * 24  # 24h
+MONGODB_URI = os.getenv("MONGODB_URI")
+MONGODB_DB = os.getenv("MONGODB_DB", "portale_prin")
+
+mongo_client = MongoClient(MONGODB_URI)
+db = mongo_client[MONGODB_DB]
+publications_collection = db["publications"]
 
 # Admin demo (poi lo mettiamo su DB)
 ADMIN_EMAIL = os.getenv("ADMIN_EMAIL", "admin@research.com")
@@ -63,20 +72,24 @@ class PublicationOut(BaseModel):
     file_name: Optional[str] = None
     created_at: str
 
-PUBLICATIONS: list[dict] = []
-
 
 # =========================
 # AUTH DEPENDENCY
 # =========================
 
-from fastapi import Depends, Header
+from fastapi import Depends, Header, Request
 
-def require_admin(authorization: Optional[str] = Header(default=None)):
-    if not authorization or not authorization.lower().startswith("bearer "):
+def require_admin(
+    request: Request,
+    authorization: Optional[str] = Header(default=None),
+):
+    # prova a leggere sia "authorization" che "Authorization"
+    auth = authorization or request.headers.get("Authorization")
+
+    if not auth or not auth.lower().startswith("bearer "):
         raise HTTPException(status_code=401, detail="Token mancante")
 
-    token = authorization.split(" ", 1)[1].strip()
+    token = auth.split(" ", 1)[1].strip()
     try:
         payload = jwt.decode(token, JWT_SECRET, algorithms=[JWT_ALG])
     except Exception:
@@ -94,7 +107,11 @@ def require_admin(authorization: Optional[str] = Header(default=None)):
 
 @app.get("/publications", response_model=list[PublicationOut])
 def list_publications():
-    return PUBLICATIONS
+    docs = list(publications_collection.find().sort("created_at", -1))
+    for d in docs:
+        d["id"] = str(d["_id"])
+        del d["_id"]
+    return docs
 
 
 # =========================
@@ -111,8 +128,7 @@ def create_publication(
     if payload.type == "report" and not payload.file_name:
         raise HTTPException(status_code=400, detail="Per un report serve file_name")
 
-    item = {
-        "id": str(uuid4()),
+    doc = {
         "type": payload.type,
         "title": payload.title.strip(),
         "authors": payload.authors.strip(),
@@ -122,8 +138,9 @@ def create_publication(
         "created_at": datetime.utcnow().isoformat() + "Z",
     }
 
-    PUBLICATIONS.insert(0, item)
-    return item
+    res = publications_collection.insert_one(doc)
+    doc["id"] = str(res.inserted_id)
+    return doc
 
 
 @app.delete("/admin/publications/{pub_id}")
@@ -131,10 +148,8 @@ def delete_publication(
     pub_id: str,
     _admin=Depends(require_admin),
 ):
-    global PUBLICATIONS
-    before = len(PUBLICATIONS)
-    PUBLICATIONS = [p for p in PUBLICATIONS if p["id"] != pub_id]
-    if len(PUBLICATIONS) == before:
+    res = publications_collection.delete_one({"_id": ObjectId(pub_id)})
+    if res.deleted_count == 0:
         raise HTTPException(status_code=404, detail="Non trovato")
     return {"status": "deleted"}
 
