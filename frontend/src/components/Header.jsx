@@ -5,7 +5,7 @@ export default function Header({ rightLinkLabel = "Area Admin", rightLinkHref = 
         {/* Logo sinistra */}
         <div className="absolute left-6 flex h-full items-center">
           <img
-            src="/logos/logo-sinistra.png"
+            src="/logos/nextgeneu1.png"
             alt="Logo sinistra"
             className="h-full object-contain"
           />
@@ -26,7 +26,7 @@ export default function Header({ rightLinkLabel = "Area Admin", rightLinkHref = 
           </a>
 
           <img
-            src="/logos/logo-destra.png"
+            src="/logos/Italiadomani1.png"
             alt="Logo destra"
             className="h-full object-contain"
           />
