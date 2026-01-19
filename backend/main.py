@@ -11,6 +11,7 @@ from bson import ObjectId
 from fastapi import Request
 import os
 
+
 app = FastAPI(title="Portale Ricerca Scientifica API")
 
 # CORS: permette al frontend (localhost e Vercel) di chiamare l'API
