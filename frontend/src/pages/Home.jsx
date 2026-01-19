@@ -143,7 +143,7 @@ const [items, setItems] = useState([]);
         data={new Date(r.created_at).toLocaleDateString("it-IT")}
         descrizione={r.description}
         autori={r.authors}
-        cta="Vai all'articolo"
+        cta="Vai al report"
         href={a.url || "#"}
       />
     ))
@@ -219,7 +219,7 @@ function CardReport({ titolo, data, descrizione, autori, cta, href }) {
       <div className="mt-6 text-sm font-semibold">Autori:</div>
       <div className="mt-1 text-sm text-slate-600">{autori}</div>
 
-            <a
+      <a
         href={href}
         className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#2f6fb6] px-4 py-3 text-sm font-semibold text-white hover:brightness-95"
       >
