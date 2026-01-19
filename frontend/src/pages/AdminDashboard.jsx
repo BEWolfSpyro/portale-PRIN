@@ -202,7 +202,7 @@ useEffect(() => {
       </main>
 
       <footer className="bg-[#0f172a] py-8 text-center text-sm text-slate-300">
-        © 2024 Portale Ricerca Scientifica. Tutti i diritti riservati.
+        © 2024 Portal PRIN 2022 - SCORET. Tutti i diritti riservati.
       </footer>
 
 {showModal && (

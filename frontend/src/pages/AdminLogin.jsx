@@ -61,7 +61,7 @@ export default function AdminLogin() {
                 />
               </svg>
             </div>
-            <div className="text-lg font-semibold">Portale Ricerca Scientifica</div>
+            <div className="text-lg font-semibold">Portal PRIN 2022 - SCORET</div>
           </div>
 
           <a
@@ -124,7 +124,7 @@ export default function AdminLogin() {
       </main>
 
       <footer className="bg-[#0f172a] py-8 text-center text-sm text-slate-300">
-        © 2024 Portale Ricerca Scientifica. Tutti i diritti riservati.
+        © 2024 Portal PRIN 2022 - SCORET. Tutti i diritti riservati.
       </footer>
     </div>
   );
