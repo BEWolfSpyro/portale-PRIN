@@ -78,19 +78,13 @@ class PublicationOut(BaseModel):
 # AUTH DEPENDENCY
 # =========================
 
-from fastapi import Depends, Header, Request
+from fastapi import Header
 
-def require_admin(
-    request: Request,
-    authorization: Optional[str] = Header(default=None),
-):
-    # prova a leggere sia "authorization" che "Authorization"
-    auth = authorization or request.headers.get("Authorization")
-
-    if not auth or not auth.lower().startswith("bearer "):
+def require_admin(authorization: Optional[str] = Header(default=None, alias="Authorization")):
+    if not authorization or not authorization.lower().startswith("bearer "):
         raise HTTPException(status_code=401, detail="Token mancante")
 
-    token = auth.split(" ", 1)[1].strip()
+    token = authorization.split(" ", 1)[1].strip()
     try:
         payload = jwt.decode(token, JWT_SECRET, algorithms=[JWT_ALG])
     except Exception:
