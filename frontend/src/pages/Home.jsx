@@ -144,7 +144,7 @@ const [items, setItems] = useState([]);
         descrizione={r.description}
         autori={r.authors}
         cta="Vai al report"
-        href={a.url || "#"}
+        href={r.url || "#"}
       />
     ))
   )}
