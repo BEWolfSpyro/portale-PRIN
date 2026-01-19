@@ -15,14 +15,14 @@ const [items, setItems] = useState([]);
     <div className="min-h-screen bg-[#f5f7fb] text-slate-800">
       {/* Header */}
       <header className="bg-[#2f6fb6] text-white">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <div className="relative flex h-20 w-full items-center px-6">
           
-	{/* Logo sinistra */}
-    <div className="flex items-center">
+	{/* Logo sinistra (estremo sinistro)*/}
+    <div className="absolute left-6 flex h-full items-center">
       <img
         src="/logos/nextgeneu1.png"
         alt="Logo sinistra"
-        className="h-10 object-contain"
+        className="h-full object-contain"
       />
     </div>
 
@@ -32,7 +32,7 @@ const [items, setItems] = useState([]);
     </div>
 
 	{/* Destra: bottone + logo */}
-    <div className="flex items-center gap-4">
+    <div className="absolute right-6 flex h-full items-center gap-4">
       <a
         href="/admin"
         className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-[#2f6fb6] shadow-sm hover:bg-slate-50"
@@ -43,7 +43,7 @@ const [items, setItems] = useState([]);
       <img
         src="/logos/Italiadomani1.png"
         alt="Logo destra"
-        className="h-10 object-contain"
+        className="h-full object-contain"
       />
     </div>
 
