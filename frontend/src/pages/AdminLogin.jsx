@@ -104,9 +104,6 @@ export default function AdminLogin() {
                 placeholder="********"
                 required
               />
-              <p className="mt-2 text-xs text-slate-500">
-                Demo: admin@research.com / Admin123!
-              </p>
             </div>
 
             {error ? (
