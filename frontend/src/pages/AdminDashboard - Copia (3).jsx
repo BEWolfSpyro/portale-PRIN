@@ -11,6 +11,7 @@ const [title, setTitle] = useState("");
 const [authors, setAuthors] = useState("");
 const [description, setDescription] = useState("");
 const [url, setUrl] = useState("");
+const [fileName, setFileName] = useState("");
 const [saving, setSaving] = useState(false);
 const [modalError, setModalError] = useState("");
 const [items, setItems] = useState([]);
@@ -218,22 +219,13 @@ useEffect(() => {
         </button>
       </div>
 
-{modalError && (
-  <div className="mt-4 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-    {modalError}
-  </div>
-)}
-
       <div className="mt-6">
         <label className="text-sm font-semibold">Tipo di pubblicazione</label>
         <select
-  	  value={pubType}
-  	  onChange={(e) => {
-            setPubType(e.target.value);
-            setUrl("");
-	  }}
-  	  className="mt-2 w-full rounded-md border border-slate-200 px-3 py-2 text-sm"
-	>
+  value={pubType}
+  onChange={(e) => setPubType(e.target.value)}
+  className="mt-2 w-full rounded-md border border-slate-200 px-3 py-2 text-sm"
+>
   <option value="article">Articolo Scientifico</option>
   <option value="report">Report del Progetto</option>
 </select>
@@ -286,7 +278,7 @@ useEffect(() => {
 
 {pubType === "report" && (
   <div className="mt-4">
-    <label className="text-sm font-semibold">URL report</label>
+    <label className="text-sm font-semibold">URL articolo</label>
     <input
       value={url}
       onChange={(e) => setUrl(e.target.value)}
@@ -296,6 +288,14 @@ useEffect(() => {
     />
   </div>
 )}
+
+      <div className="mt-4">
+        <label className="text-sm font-semibold">File (solo per Report)</label>
+        <input
+          type="file"
+          className="mt-2 w-full text-sm"
+        />
+      </div>
 
       <div className="mt-6 flex justify-end gap-3">
         <button
