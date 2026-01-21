@@ -38,33 +38,36 @@ export default function Header({
           </div>
         </div>
 
-        {/* MOBILE */}
-        <div className="md:hidden">
-          <div className="text-center text-lg font-semibold leading-snug">
-            Portal PRIN 2022 - SCORET
-          </div>
+{/* MOBILE */}
+<div className="md:hidden flex flex-col items-center text-center">
+  
+  {/* Titolo */}
+  <div className="text-lg font-semibold leading-snug">
+    Portal PRIN 2022 - SCORET
+  </div>
 
-          <div className="mt-3 flex items-center justify-center gap-4">
-            <img
-              src="/logos/nextgeneu1.png"
-              alt="Logo sinistra"
-              className="h-12 object-contain"
-            />
-            <img
-              src="/logos/Italiadomani1.png"
-              alt="Logo destra"
-              className="h-12 object-contain"
-            />
-          </div>
+  {/* Logo sinistra */}
+  <img
+    src="/logos/logo-sinistra.png"
+    alt="Logo sinistra"
+    className="mt-4 h-14 object-contain"
+  />
 
-          <div className="mt-3 flex justify-center">
-            <a
-              href={rightLinkHref}
-              className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-[#2B65AF] shadow-sm hover:bg-slate-50"
-            >
-              {rightLinkLabel}
-            </a>
-          </div>
+  {/* Logo destra */}
+  <img
+    src="/logos/logo-destra.png"
+    alt="Logo destra"
+    className="mt-3 h-14 object-contain"
+  />
+
+  {/* Bottone */}
+  <a
+    href={rightLinkHref}
+    className="mt-4 rounded-md bg-white px-4 py-2 text-sm font-semibold text-[#2f6fb6] shadow-sm hover:bg-slate-50"
+  >
+    {rightLinkLabel}
+  </a>
+</div>
         </div>
       </div>
     </header>
