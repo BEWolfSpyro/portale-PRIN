@@ -20,7 +20,7 @@ const [items, setItems] = useState([]);
       {/* Hero */}
       <section className="bg-gradient-to-b from-white to-[#f5f7fb]">
         <div className="mx-auto max-w-6xl px-6 py-16">
-          <h1 className="text-4xl font-bold tracking-tight">Research Output of Project:
+          <h1 className="text-4xl font-bold tracking-tight">Research Output of Project:<br />
 Smart COmmunities for Resilient Energy Transition - SCORET </h1>
           <p className="mt-4 max-w-2xl text-slate-600">
             This website collects all research results and final deliverables of the project "Smart COmmunities for Resilient Energy Transition - SCORET", Project Code 2022YYMWTJ, CUPD53D23001600006, financed by the European Union- Next Generation EU, Mission 4 "Education and Research" - Component C2 Investment 1.1, "Fund for the 2022 National Research Programme and Projects of Significant National Interest (PRIN 2022)".
