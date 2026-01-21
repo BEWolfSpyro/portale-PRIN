@@ -10,7 +10,7 @@ export default function Header({
           {/* Logo sinistra */}
           <div className="absolute left-0 flex h-full items-center">
             <img
-              src="/logos/logo-sinistra.png"
+              src="/logos/nextgeneu1.png"
               alt="Logo sinistra"
               className="h-full object-contain"
             />
@@ -31,7 +31,7 @@ export default function Header({
             </a>
 
             <img
-              src="/logos/logo-destra.png"
+              src="/logos/Italiadomani1.png"
               alt="Logo destra"
               className="h-full object-contain"
             />
@@ -46,12 +46,12 @@ export default function Header({
 
           <div className="mt-3 flex items-center justify-center gap-4">
             <img
-              src="/logos/logo-sinistra.png"
+              src="/logos/nextgeneu1.png"
               alt="Logo sinistra"
               className="h-12 object-contain"
             />
             <img
-              src="/logos/logo-destra.png"
+              src="/logos/Italiadomani1.png"
               alt="Logo destra"
               className="h-12 object-contain"
             />
