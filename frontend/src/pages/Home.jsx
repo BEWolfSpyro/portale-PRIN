@@ -56,7 +56,6 @@ Smart COmmunities for Resilient Energy Transition - SCORET </h1>
       <CardArticolo
         key={a.id}
         titolo={a.title}
-        data={new Date(a.created_at).toLocaleDateString("it-IT")}
         abstract={a.description}
         autori={a.authors}
         cta="Go to the paper"
@@ -106,7 +105,6 @@ Smart COmmunities for Resilient Energy Transition - SCORET </h1>
       <CardReport
         key={r.id}
         titolo={r.title}
-        data={new Date(r.created_at).toLocaleDateString("it-IT")}
         descrizione={r.description}
         autori={r.authors}
         cta="Go to the report"
@@ -139,9 +137,9 @@ function CardArticolo({ titolo, data, abstract, autori, cta, href }) {
       <div className="text-lg font-semibold">{titolo}</div>
       <div className="mt-1 text-sm text-slate-500">{data}</div>
 
-      <div className="mt-6 text-sm text-slate-600">{abstract}</div>
+      <div className="mt-6 text-sm text-slate-600 line-clamp-3">{abstract}</div>
 
-      <div className="mt-6 text-sm font-semibold">Autori:</div>
+      <div className="mt-6 text-sm font-semibold">Authors:</div>
       <div className="mt-1 text-sm text-slate-600">{autori}</div>
 
       <a
@@ -180,9 +178,9 @@ function CardReport({ titolo, data, descrizione, autori, cta, href }) {
       <div className="text-lg font-semibold">{titolo}</div>
       <div className="mt-1 text-sm text-slate-500">{data}</div>
 
-      <div className="mt-6 text-sm text-slate-600">{descrizione}</div>
+      <div className="mt-6 text-sm text-slate-600 line-clamp-3">{descrizione}</div>
 
-      <div className="mt-6 text-sm font-semibold">Autori:</div>
+      <div className="mt-6 text-sm font-semibold">Authors:</div>
       <div className="mt-1 text-sm text-slate-600">{autori}</div>
 
       <a
