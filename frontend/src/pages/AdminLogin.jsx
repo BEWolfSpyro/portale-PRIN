@@ -20,15 +20,15 @@ export default function AdminLogin() {
     });
 
     if (!res.ok) {
-      if (res.status === 401) throw new Error("Credenziali non valide");
-      throw new Error("Errore server");
+      if (res.status === 401) throw new Error("Invalid Credentials");
+      throw new Error("Server Error");
     }
 
     const data = await res.json();
     localStorage.setItem("admin_token", data.access_token);
     window.location.href = "/admin/dashboard";
   } catch (err) {
-    setError(err.message || "Errore");
+    setError(err.message || "Error");
   } finally {
     setLoading(false);
   }
@@ -42,9 +42,9 @@ export default function AdminLogin() {
       {/* Body */}
       <main className="mx-auto grid max-w-6xl place-items-center px-6 py-16">
         <div className="w-full max-w-md rounded-xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
-          <div className="text-2xl font-bold">Accesso Admin</div>
+          <div className="text-2xl font-bold">Admin Access</div>
           <p className="mt-2 text-sm text-slate-600">
-            Inserisci le credenziali per accedere alla dashboard.
+            Enter your credentials to access the dashboard.
           </p>
 
           <form onSubmit={onSubmit} className="mt-8 space-y-5">
@@ -83,7 +83,7 @@ export default function AdminLogin() {
               disabled={loading}
               className="inline-flex w-full items-center justify-center rounded-md bg-[#2B65AF] px-4 py-3 text-sm font-semibold text-white hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-70"
             >
-              {loading ? "Accesso..." : "Accedi"}
+              {loading ? "Access..." : "Log in"}
             </button>
           </form>
         </div>
