@@ -3,7 +3,7 @@ export default function Header({
   rightLinkHref = "/admin",
 }) {
   return (
-    <header className="bg-[#2f6fb6] text-white">
+    <header className="bg-[#2B65AF] text-white">
       <div className="w-full px-4 py-4 md:px-6">
         {/* DESKTOP */}
         <div className="relative hidden h-20 items-center md:flex">
@@ -25,7 +25,7 @@ export default function Header({
           <div className="absolute right-0 flex h-full items-center gap-4">
             <a
               href={rightLinkHref}
-              className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-[#2f6fb6] shadow-sm hover:bg-slate-50"
+              className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-[#2B65AF] shadow-sm hover:bg-slate-50"
             >
               {rightLinkLabel}
             </a>
@@ -60,7 +60,7 @@ export default function Header({
           <div className="mt-3 flex justify-center">
             <a
               href={rightLinkHref}
-              className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-[#2f6fb6] shadow-sm hover:bg-slate-50"
+              className="rounded-md bg-white px-4 py-2 text-sm font-semibold text-[#2B65AF] shadow-sm hover:bg-slate-50"
             >
               {rightLinkLabel}
             </a>
