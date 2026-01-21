@@ -1,0 +1,96 @@
+"# Portale Ricerca Scientifica
+
+## 🎉 Il sito è completamente funzionante!
+
+### ✅ Funzionalità Implementate
+
+#### Homepage Pubblica
+- Visualizzazione articoli scientifici con link esterni
+- Visualizzazione report scaricabili
+- Design pulito con colore azzurro (#2B65AF)
+- Responsive e mobile-friendly
+
+#### Area Amministratore
+- **Login sicuro** con autenticazione JWT
+- **Dashboard amministratore** con statistiche
+- **Aggiungi articoli scientifici** (titolo, abstract, autori, link)
+- **Aggiungi report** con upload file PDF/WORD
+- **Elimina pubblicazioni**
+- **Gestione completa** di tutti i contenuti
+
+### 🔐 Credenziali Admin
+
+```
+Email: admin@research.com
+Password: Admin123!
+```
+
+### 🚀 Come Usare il Sito
+
+#### Per gli Utenti Pubblici:
+1. Visita la homepage
+2. Sfoglia articoli scientifici e report
+3. Clicca \"Vai al Sito\" per gli articoli (link esterno)
+4. Clicca \"Scarica Report\" per i report (download diretto)
+
+#### Per gli Amministratori:
+1. Clicca \"Area Admin\" in alto a destra
+2. Accedi con le credenziali
+3. Usa \"Aggiungi Pubblicazione\" per:
+   - **Articoli**: Inserisci titolo, abstract, autori e link esterno
+   - **Report**: Inserisci titolo, abstract, autori e carica file PDF/WORD
+4. Gestisci le pubblicazioni esistenti (elimina)
+5. Clicca \"Logout\" quando hai finito
+
+### 📁 Struttura Tecnica
+
+**Backend (FastAPI + MongoDB):**
+- Autenticazione JWT con password hashate
+- Upload file con validazione (max 50MB, solo PDF/WORD)
+- API RESTful complete
+- Database MongoDB per persistenza
+
+**Frontend (React + Tailwind):**
+- Design moderno con Shadcn UI
+- Integrazione completa con backend
+- Gestione sicura dei token JWT
+- Upload file con feedback visivo
+
+### 🔄 Prossimi Passi Possibili
+
+Quando vuoi personalizzare il sito, puoi:
+
+1. **Aggiungere il logo**:
+   - Sostituire l'icona BookOpen nell'header
+   - Aggiungere immagini personalizzate
+
+2. **Modificare i colori**:
+   - Cambiare il colore primario nel file `/app/frontend/src/index.css`
+
+3. **Aggiungere funzionalità**:
+   - Modifica articoli/report esistenti
+   - Filtri e ricerca
+   - Paginazione per grandi quantità di dati
+   - Categorie/tag per organizzare i contenuti
+
+### 📝 Note Importanti
+
+- I file caricati sono salvati in `/app/backend/uploads/reports/`
+- Il database MongoDB conserva tutti i dati
+- Le password sono hashate con bcrypt
+- I token JWT hanno validità di 7 giorni
+
+### 🎨 Personalizzazione Design
+
+Tutti i file CSS si trovano in:
+- `/app/frontend/src/index.css` - Colori globali
+- `/app/frontend/src/App.css` - Stili applicazione
+
+Per modificare il colore primario (attualmente azzurro #2B65AF):
+1. Apri `/app/frontend/src/index.css`
+2. Modifica la variabile `--primary: 213 59% 43%;` con i tuoi valori HSL
+
+---
+
+**Il sito è pronto per essere usato! Puoi iniziare ad aggiungere i tuoi articoli e report reali.** 🚀
+"

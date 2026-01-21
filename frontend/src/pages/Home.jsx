@@ -20,10 +20,10 @@ const [items, setItems] = useState([]);
       {/* Hero */}
       <section className="bg-gradient-to-b from-white to-[#f5f7fb]">
         <div className="mx-auto max-w-6xl px-6 py-16">
-          <h1 className="text-4xl font-bold tracking-tight">Prodotti della Ricerca</h1>
+          <h1 className="text-4xl font-bold tracking-tight">Research Output of Project: Smart COmmunities for Resilient Energy Transition - SCORET </h1>
           <p className="mt-4 max-w-2xl text-slate-600">
-            Esplora gli articoli scientifici e i report del nostro progetto di ricerca.
-            Scopri le pubblicazioni, scarica i documenti e rimani aggiornato sui progressi.
+            Project Code 2022YYMWTJ CUPD53D23001600006, financed by the European Union- Next Generation EU, Mission 4 ‘Education and Research’- Component C2 Investment 1.1, ‘Fund for the 2022 National Research Programme and Projects of Significant National Interest (PRIN 2022)’
+This website collects all research results and final deliverables.
           </p>
         </div>
       </section>
@@ -43,7 +43,7 @@ const [items, setItems] = useState([]);
                 <path d="M14 3v4a2 2 0 0 0 2 2h4" stroke="#2B65AF" strokeWidth="2" />
               </svg>
             </div>
-            <h2 className="text-2xl font-semibold">Articoli Scientifici</h2>
+            <h2 className="text-2xl font-semibold">Articles and Conference Proceedings</h2>
           </div>
 
           <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -59,7 +59,7 @@ const [items, setItems] = useState([]);
         data={new Date(a.created_at).toLocaleDateString("it-IT")}
         abstract={a.description}
         autori={a.authors}
-        cta="Vai all'articolo"
+        cta="Go to the paper"
         href={a.url || "#"}
       />
     ))
@@ -93,7 +93,7 @@ const [items, setItems] = useState([]);
                 />
               </svg>
             </div>
-            <h2 className="text-2xl font-semibold">Report del Progetto</h2>
+            <h2 className="text-2xl font-semibold">Activities Reports</h2>
           </div>
 
           <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -109,7 +109,7 @@ const [items, setItems] = useState([]);
         data={new Date(r.created_at).toLocaleDateString("it-IT")}
         descrizione={r.description}
         autori={r.authors}
-        cta="Vai al report"
+        cta="Go to the report"
         href={r.url || "#"}
       />
     ))
