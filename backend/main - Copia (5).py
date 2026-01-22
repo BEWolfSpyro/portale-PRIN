@@ -154,41 +154,6 @@ def delete_publication(
         raise HTTPException(status_code=404, detail="Non trovato")
     return {"status": "deleted"}
 
-@app.put("/admin/publications/{pub_id}", response_model=PublicationOut)
-def update_publication(
-    pub_id: str,
-    payload: PublicationCreate,
-    _admin=Depends(require_admin),
-):
-    # Controlli base come nel create
-    if payload.type == "article" and not payload.url:
-        raise HTTPException(status_code=400, detail="Per un articolo serve la URL")
-    if payload.type == "report" and not payload.url:
-        raise HTTPException(status_code=400, detail="Per un report serve la URL")
-
-    # Cerco il documento esistente
-    existing = publications_collection.find_one({"_id": ObjectId(pub_id)})
-    if not existing:
-        raise HTTPException(status_code=404, detail="Pubblicazione non trovata")
-
-    update_doc = {
-        "type": payload.type,
-        "title": payload.title.strip(),
-        "authors": payload.authors.strip(),
-        "description": payload.description.strip(),
-        "url": payload.url,
-        "file_name": payload.file_name,
-        # manteniamo la data di creazione originale
-        "created_at": existing.get("created_at"),
-    }
-
-    publications_collection.update_one(
-        {"_id": existing["_id"]},
-        {"$set": update_doc},
-    )
-
-    update_doc["id"] = pub_id
-    return update_doc
 
 # ENDPOINT
 @app.get("/health")
