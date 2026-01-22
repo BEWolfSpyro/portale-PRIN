@@ -7,7 +7,6 @@ export default function AdminDashboard() {
     window.location.href = "/admin";
   }
 const [showModal, setShowModal] = useState(false);
-const [editingId, setEditingId] = useState(null);
 const [pubType, setPubType] = useState("article");
 const [title, setTitle] = useState("");
 const [authors, setAuthors] = useState("");
@@ -135,39 +134,24 @@ useEffect(() => {
           )}
         </div>
 
-        <div className="flex items-center gap-2">
-  <button
-    className="rounded-md border border-slate-200 px-3 py-2 text-sm hover:bg-slate-50"
-    onClick={() => {
-      // Precompila la modale con i dati esistenti
-      setPubType(p.type);
-      setTitle(p.title || "");
-      setAuthors(p.authors || "");
-      setDescription(p.description || "");
-      setUrl(p.url || "");
-
-      setModalError("");
-      setEditingId(p.id);
-      setShowModal(true);
-    }}
-  >
-    Modifica
-  </button>
-
-  <button
-    className="rounded-md border border-slate-200 px-3 py-2 text-sm hover:bg-slate-50"
-    onClick={async () => {
-      const token = localStorage.getItem("admin_token");
-      await fetch(`${import.meta.env.VITE_API_URL}/admin/publications/${p.id}`, {
-        method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      fetchPublications();
-    }}
-  >
-    Elimina
-  </button>
-</div>
+        <button
+          className="rounded-md border border-slate-200 px-3 py-2 text-sm hover:bg-slate-50"
+          onClick={async () => {
+            const token = localStorage.getItem("admin_token");
+            await fetch(
+              `${import.meta.env.VITE_API_URL}/admin/publications/${p.id}`,
+              {
+                method: "DELETE",
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            );
+            fetchPublications();
+          }}
+        >
+          Elimina
+        </button>
       </div>
     ))}
   </div>
@@ -183,15 +167,9 @@ useEffect(() => {
   <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
     <div className="w-full max-w-xl rounded-xl bg-white p-6 shadow-lg">
       <div className="flex items-center justify-between">
-        <div className="text-lg font-semibold">
-  {editingId ? "Modifica Pubblicazione" : "Nuova Pubblicazione"}
-</div>
+        <div className="text-lg font-semibold">Nuova Pubblicazione</div>
         <button
-          onClick={() => {
-  setShowModal(false);
-  setEditingId(null);
-  setModalError("");
-}}
+          onClick={() => setShowModal(false)}
           className="text-slate-500 hover:text-slate-800"
         >
           ✕
@@ -279,11 +257,7 @@ useEffect(() => {
 
       <div className="mt-6 flex justify-end gap-3">
         <button
-          onClick={() => {
-  setShowModal(false);
-  setEditingId(null);
-  setModalError("");
-}}
+          onClick={() => setShowModal(false)}
           className="rounded-md border border-slate-200 px-4 py-2 text-sm"
         >
           Annulla
@@ -303,20 +277,17 @@ useEffect(() => {
           ? { type: "article", title, authors, description, url }
           : { type: "report", title, authors, description, url };
 
-      const endpoint = editingId
-  ? `${import.meta.env.VITE_API_URL}/admin/publications/${editingId}`
-  : `${import.meta.env.VITE_API_URL}/admin/publications`;
-
-const method = editingId ? "PUT" : "POST";
-
-const res = await fetch(endpoint, {
-  method,
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${token}`,
-  },
-  body: JSON.stringify(body),
-});
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/admin/publications`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(body),
+        }
+      );
 
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
@@ -328,7 +299,6 @@ const res = await fetch(endpoint, {
       setAuthors("");
       setDescription("");
       setUrl("");
-      setEditingId(null);
 
       setShowModal(false);
       fetchPublications();
@@ -339,7 +309,7 @@ const res = await fetch(endpoint, {
     }
   }}
 >
-  {saving ? "Salvataggio..." : editingId ? "Aggiorna" : "Salva"}
+  {saving ? "Salvataggio..." : "Salva"}
 </button>
       </div>
     </div>
