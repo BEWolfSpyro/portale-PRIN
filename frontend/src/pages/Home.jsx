@@ -12,6 +12,7 @@ const [items, setItems] = useState([]);
 
   const articles = items.filter((x) => x.type === "article");
   const reports = items.filter((x) => x.type === "report");
+  const lessons = items.filter((x) => x.type === "lesson");
   return (
     <div className="min-h-screen bg-[#f5f7fb] text-slate-800">
       {/* Header */}
@@ -143,12 +144,25 @@ Smart COmmunities for Resilient Energy Transition - SCORET </h1>
     <h2 className="text-2xl font-semibold">Lessons Learned & Guidelines</h2>
   </div>
 
-  <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+<div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+  {lessons.length === 0 ? (
     <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200 text-slate-600">
       Nessun contenuto ancora.
     </div>
-  </div>
-</section>
+  ) : (
+    lessons.map((l) => (
+      <CardReport
+        key={l.id}
+        titolo={l.title}
+        data={new Date(l.created_at).toLocaleDateString("it-IT")}
+        descrizione={l.description}
+        autori={l.authors}
+        cta="Apri contenuto"
+        href={l.url || "#"}
+      />
+    ))
+  )}
+</div>
 
       </main>
 
