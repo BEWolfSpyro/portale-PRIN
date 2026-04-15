@@ -120,42 +120,6 @@ export default function App() {
             />
           </div>
         </section>
-
-{/* Lesson Learned & Guidelines */}
-<section className="mt-14">
-  <div className="flex items-center gap-3">
-    <div className="grid h-10 w-10 place-items-center rounded-lg bg-white shadow-sm">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-        <path
-          d="M12 3v18"
-          stroke="#2f6fb6"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-        <path
-          d="M5 7h14"
-          stroke="#2f6fb6"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-        <path
-          d="M5 17h14"
-          stroke="#2f6fb6"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-      </svg>
-    </div>
-    <h2 className="text-2xl font-semibold">Lessons Learned & Guidelines</h2>
-  </div>
-
-  <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-    <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200 text-slate-600">
-      Nessun contenuto ancora.
-    </div>
-  </div>
-</section>
-
       </main>
 
       <footer className="bg-[#0f172a] py-8 text-center text-sm text-slate-300">
