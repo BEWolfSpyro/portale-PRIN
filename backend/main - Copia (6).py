@@ -59,7 +59,7 @@ class LoginReq(BaseModel):
 from typing import Optional, Literal
 from uuid import uuid4
 
-PublicationType = Literal["article", "report", "lesson"]
+PublicationType = Literal["article", "report"]
 
 class PublicationCreate(BaseModel):
     type: PublicationType
@@ -128,8 +128,6 @@ def create_publication(
         raise HTTPException(status_code=400, detail="Per un articolo serve la URL")
     if payload.type == "report" and not payload.url:
     	raise HTTPException(status_code=400, detail="Per un report serve la URL")
-    if payload.type == "lesson" and not payload.url:
-    	raise HTTPException(status_code=400, detail="Per un contenuto lesson serve la URL")
 
     doc = {
         "type": payload.type,

@@ -100,10 +100,8 @@ useEffect(() => {
           <div className="text-sm font-semibold">
             {p.title}{" "}
             <span className="ml-2 rounded bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-600">
-  		{p.type === "article" && "Articolo"}
-  		{p.type === "report" && "Report"}
-  		{p.type === "lesson" && "Lesson"}
-	    </span>
+              {p.type === "article" ? "Articolo" : "Report"}
+            </span>
           </div>
 
           <div className="mt-1 text-xs text-slate-500">
@@ -218,7 +216,6 @@ useEffect(() => {
 	>
   <option value="article">Articolo Scientifico</option>
   <option value="report">Report del Progetto</option>
-  <option value="lesson">Lessons Learned & Guidelines</option>
 </select>
       </div>
 
@@ -254,13 +251,22 @@ useEffect(() => {
 />
       </div>
 
-{(pubType === "article" || pubType === "report" || pubType === "lesson") && (
+{pubType === "article" && (
   <div className="mt-4">
-    <label className="text-sm font-semibold">
-      {pubType === "article" && "URL articolo"}
-      {pubType === "report" && "URL report (PDF / Drive / OneDrive)"}
-      {pubType === "lesson" && "URL contenuto lesson"}
-    </label>
+    <label className="text-sm font-semibold">URL articolo</label>
+    <input
+      value={url}
+      onChange={(e) => setUrl(e.target.value)}
+      type="url"
+      className="mt-2 w-full rounded-md border border-slate-200 px-3 py-2 text-sm"
+      placeholder="https://..."
+    />
+  </div>
+)}
+
+{pubType === "report" && (
+  <div className="mt-4">
+    <label className="text-sm font-semibold">URL report</label>
     <input
       value={url}
       onChange={(e) => setUrl(e.target.value)}
