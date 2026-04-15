@@ -163,7 +163,7 @@ Smart COmmunities for Resilient Energy Transition - SCORET </h1>
     ))
   )}
 </div>
-
+</section>
       </main>
 
       <footer className="bg-[#0f172a] py-8 text-center text-sm text-slate-300">
