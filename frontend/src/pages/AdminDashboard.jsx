@@ -54,11 +54,15 @@ useEffect(() => {
     value={items.filter((i) => i.type === "article").length}
   />
   <StatCard
-    title="Report"
+    title="Reports"
     value={items.filter((i) => i.type === "report").length}
   />
   <StatCard
-    title="Totale Pubblicazioni"
+    title="Guidelines"
+    value={items.filter((i) => i.type === "lesson").length}
+  />
+  <StatCard
+    title="Totale"
     value={items.length}
   />
 </div>
