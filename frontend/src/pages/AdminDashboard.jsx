@@ -140,6 +140,18 @@ useEffect(() => {
             </a>
           )}
 
+	{p.type === "lesson" && p.url && (
+            <a
+              href={p.url}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-2 inline-block text-sm font-semibold text-[#2B65AF] hover:underline"
+            >
+              Vai alla lezione
+            </a>
+          )}
+
+
 	
         </div>
 
