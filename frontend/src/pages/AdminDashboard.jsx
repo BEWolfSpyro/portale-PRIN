@@ -43,14 +43,14 @@ useEffect(() => {
       <Header rightLinkLabel="Homepage" rightLinkHref="/" />
 
       <main className="mx-auto max-w-6xl px-6 py-12">
-        <h1 className="text-3xl font-bold">Pannello di Controllo</h1>
+        <h1 className="text-3xl font-bold">Control panel</h1>
         <p className="mt-3 text-slate-600">
-          Gestisci articoli scientifici e report del progetto.
+          Manage scientific articles and project reports.
         </p>
 
         <div className="mt-8 grid gap-6 md:grid-cols-3">
   <StatCard
-    title="Articoli"
+    title="Papers"
     value={items.filter((i) => i.type === "article").length}
   />
   <StatCard
@@ -58,11 +58,11 @@ useEffect(() => {
     value={items.filter((i) => i.type === "report").length}
   />
   <StatCard
-    title="Guidelines"
+    title="Lessons"
     value={items.filter((i) => i.type === "lesson").length}
   />
   <StatCard
-    title="Totale"
+    title="Total"
     value={items.length}
   />
 </div>
@@ -81,7 +81,7 @@ useEffect(() => {
   className="rounded-md bg-[#2B65AF] px-4 py-2 text-sm font-semibold text-white hover:brightness-95"
   onClick={() => setShowModal(true)}
 >
-  + Nuova pubblicazione
+  + New Document
 </button>
           </div>
 
@@ -104,7 +104,7 @@ useEffect(() => {
           <div className="text-sm font-semibold">
             {p.title}{" "}
             <span className="ml-2 rounded bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-600">
-  		{p.type === "article" && "Articolo"}
+  		{p.type === "article" && "Paper"}
   		{p.type === "report" && "Report"}
   		{p.type === "lesson" && "Lesson"}
 	    </span>
@@ -125,7 +125,7 @@ useEffect(() => {
               rel="noreferrer"
               className="mt-2 inline-block text-sm font-semibold text-[#2B65AF] hover:underline"
             >
-              Vai all'articolo
+              Go to the paper
             </a>
           )}
 
@@ -136,7 +136,7 @@ useEffect(() => {
               rel="noreferrer"
               className="mt-2 inline-block text-sm font-semibold text-[#2B65AF] hover:underline"
             >
-              Vai al report
+              Go to the report
             </a>
           )}
 
@@ -147,7 +147,7 @@ useEffect(() => {
               rel="noreferrer"
               className="mt-2 inline-block text-sm font-semibold text-[#2B65AF] hover:underline"
             >
-              Vai alla lezione
+              Go to the lesson
             </a>
           )}
 
@@ -171,7 +171,7 @@ useEffect(() => {
       setShowModal(true);
     }}
   >
-    Modifica
+    Edit
   </button>
 
   <button
@@ -185,7 +185,7 @@ useEffect(() => {
       fetchPublications();
     }}
   >
-    Elimina
+    Detele
   </button>
 </div>
       </div>
@@ -196,7 +196,7 @@ useEffect(() => {
       </main>
 
       <footer className="bg-[#0f172a] py-8 text-center text-sm text-slate-300">
-        © 2024 Portal PRIN 2022 - SCORET. Tutti i diritti riservati.
+        © 2026 Portal PRIN 2022 - SCORET. Tutti i diritti riservati.
       </footer>
 
 {showModal && (
@@ -204,7 +204,7 @@ useEffect(() => {
     <div className="w-full max-w-xl rounded-xl bg-white p-6 shadow-lg">
       <div className="flex items-center justify-between">
         <div className="text-lg font-semibold">
-  {editingId ? "Modifica Pubblicazione" : "Nuova Pubblicazione"}
+  {editingId ? "Edit Document" : "New Document"}
 </div>
         <button
           onClick={() => {
@@ -225,7 +225,7 @@ useEffect(() => {
 )}
 
       <div className="mt-6">
-        <label className="text-sm font-semibold">Tipo di pubblicazione</label>
+        <label className="text-sm font-semibold">Document type</label>
         <select
   	  value={pubType}
   	  onChange={(e) => {
@@ -234,20 +234,20 @@ useEffect(() => {
 	  }}
   	  className="mt-2 w-full rounded-md border border-slate-200 px-3 py-2 text-sm"
 	>
-  <option value="article">Articolo Scientifico</option>
-  <option value="report">Report del Progetto</option>
+  <option value="article">Scientific Paper</option>
+  <option value="report">Report</option>
   <option value="lesson">Lessons Learned & Guidelines</option>
 </select>
       </div>
 
       <div className="mt-4">
-        <label className="text-sm font-semibold">Titolo</label>
+        <label className="text-sm font-semibold">Title</label>
         <input
   value={title}
   onChange={(e) => setTitle(e.target.value)}
   type="text"
   className="mt-2 w-full rounded-md border border-slate-200 px-3 py-2 text-sm"
-  placeholder="Titolo della pubblicazione"
+  placeholder="Document title"
 />
       </div>
 
@@ -258,12 +258,12 @@ useEffect(() => {
   onChange={(e) => setAuthors(e.target.value)}
   type="text"
   className="mt-2 w-full rounded-md border border-slate-200 px-3 py-2 text-sm"
-  placeholder="Autori"
+  placeholder="Authors"
 />
       </div>
 
       <div className="mt-4">
-        <label className="text-sm font-semibold">Descrizione / Abstract</label>
+        <label className="text-sm font-semibold">Description / Abstract</label>
         <textarea
   value={description}
   onChange={(e) => setDescription(e.target.value)}
@@ -275,9 +275,9 @@ useEffect(() => {
 {(pubType === "article" || pubType === "report" || pubType === "lesson") && (
   <div className="mt-4">
     <label className="text-sm font-semibold">
-      {pubType === "article" && "URL articolo"}
-      {pubType === "report" && "URL report (PDF / Drive / OneDrive)"}
-      {pubType === "lesson" && "URL contenuto lesson"}
+      {pubType === "article" && "URL paper"}
+      {pubType === "report" && "URL report"}
+      {pubType === "lesson" && "URL lesson"}
     </label>
     <input
       value={url}
@@ -329,7 +329,7 @@ const res = await fetch(endpoint, {
 
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        throw new Error(data.detail || "Errore salvataggio");
+        throw new Error(data.detail || "Save error");
       }
 
       // reset campi
@@ -342,13 +342,13 @@ const res = await fetch(endpoint, {
       setShowModal(false);
       fetchPublications();
     } catch (e) {
-      setModalError(e.message || "Errore");
+      setModalError(e.message || "Error");
     } finally {
       setSaving(false);
     }
   }}
 >
-  {saving ? "Salvataggio..." : editingId ? "Aggiorna" : "Salva"}
+  {saving ? "Saving..." : editingId ? "Update" : "Save"}
 </button>
       </div>
     </div>
