@@ -24,11 +24,11 @@ async function fetchPublications() {
   setLoading(true);
   try {
     const res = await fetch(`${import.meta.env.VITE_API_URL}/publications`);
-    if (!res.ok) throw new Error("Errore caricamento pubblicazioni");
+    if (!res.ok) throw new Error("Error loading documents");
     const data = await res.json();
     setItems(data);
   } catch (e) {
-    setError(e.message || "Errore");
+    setError(e.message || "Error");
   } finally {
     setLoading(false);
   }
@@ -70,9 +70,9 @@ useEffect(() => {
         <div className="mt-10 rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-lg font-semibold">Pubblicazioni</div>
+              <div className="text-lg font-semibold">Documents</div>
               <div className="mt-1 text-sm text-slate-600">
-                Qui compariranno le pubblicazioni create dall’admin.
+                Documents uploaded by the admin.
               </div>
             </div>
 
@@ -252,7 +252,7 @@ useEffect(() => {
       </div>
 
       <div className="mt-4">
-        <label className="text-sm font-semibold">Autori</label>
+        <label className="text-sm font-semibold">Authors</label>
         <input
   value={authors}
   onChange={(e) => setAuthors(e.target.value)}
@@ -298,7 +298,7 @@ useEffect(() => {
 }}
           className="rounded-md border border-slate-200 px-4 py-2 text-sm"
         >
-          Annulla
+          Cancel
         </button>
         <button
   className="rounded-md bg-[#2B65AF] px-4 py-2 text-sm font-semibold text-white disabled:opacity-70"
