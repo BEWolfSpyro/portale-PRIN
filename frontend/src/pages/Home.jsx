@@ -166,7 +166,7 @@ Smart COmmunities for Resilient Energy Transition - SCORET </h1>
       </main>
 
       <footer className="bg-[#0f172a] py-8 text-center text-sm text-slate-300">
-        © 2026 Portal PRIN 2022 - SCORET. Tutti i diritti riservati.
+        © {new Date().getFullYear()} Portal PRIN 2022 - SCORET. Tutti i diritti riservati.
       </footer>
     </div>
   );
