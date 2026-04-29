@@ -50,7 +50,7 @@ Smart COmmunities for Resilient Energy Transition - SCORET </h1>
           <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
   {articles.length === 0 ? (
     <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200 text-slate-600">
-      Nessun articolo ancora.
+      Contents loading...
     </div>
   ) : (
     articles.map((a) => (
@@ -99,7 +99,7 @@ Smart COmmunities for Resilient Energy Transition - SCORET </h1>
           <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
   {reports.length === 0 ? (
     <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200 text-slate-600">
-      Nessun report ancora.
+      Contents loading...
     </div>
   ) : (
     reports.map((r) => (
@@ -147,7 +147,7 @@ Smart COmmunities for Resilient Energy Transition - SCORET </h1>
 <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
   {lessons.length === 0 ? (
     <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200 text-slate-600">
-      Nessun contenuto ancora.
+      Contents loading...
     </div>
   ) : (
     lessons.map((l) => (
@@ -157,7 +157,7 @@ Smart COmmunities for Resilient Energy Transition - SCORET </h1>
         data={new Date(l.created_at).toLocaleDateString("it-IT")}
         descrizione={l.description}
         autori={l.authors}
-        cta="Apri contenuto"
+        cta="Go to the guideline"
         href={l.url || "#"}
       />
     ))
@@ -167,7 +167,7 @@ Smart COmmunities for Resilient Energy Transition - SCORET </h1>
       </main>
 
       <footer className="bg-[#0f172a] py-8 text-center text-sm text-slate-300">
-        © 2024 Portal PRIN 2022 - SCORET. Tutti i diritti riservati.
+        © 2026 Portal PRIN 2022 - SCORET. Tutti i diritti riservati.
       </footer>
     </div>
   );
