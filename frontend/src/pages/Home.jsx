@@ -50,7 +50,7 @@ Smart COmmunities for Resilient Energy Transition - SCORET </h1>
           <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
   {articles.length === 0 ? (
     <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200 text-slate-600">
-      Contents loading...
+      Contents loading... max 10/15 seconds...
     </div>
   ) : (
     articles.map((a) => (
@@ -99,7 +99,7 @@ Smart COmmunities for Resilient Energy Transition - SCORET </h1>
           <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
   {reports.length === 0 ? (
     <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200 text-slate-600">
-      Contents loading...
+      Contents loading... max 10/15 seconds...
     </div>
   ) : (
     reports.map((r) => (
@@ -147,7 +147,7 @@ Smart COmmunities for Resilient Energy Transition - SCORET </h1>
 <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
   {lessons.length === 0 ? (
     <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200 text-slate-600">
-      Contents loading...
+      Contents loading... max 10/15 seconds...
     </div>
   ) : (
     lessons.map((l) => (
