@@ -247,7 +247,6 @@ function CardReport({ titolo, data, descrizione, autori, cta, href }) {
     <div className="mt-1 text-sm text-slate-600">{autori}</div>
   </>
 )}
-</div>
 
       <div className="mt-auto pt-8">
         <a
