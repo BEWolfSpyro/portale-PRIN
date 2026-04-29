@@ -174,7 +174,7 @@ Smart COmmunities for Resilient Energy Transition - SCORET </h1>
 
 function CardBase({ children }) {
   return (
-    <div className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+    <div className="flex h-full flex-col rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
       {children}
     </div>
   );
@@ -197,7 +197,7 @@ function CardArticolo({ titolo, data, abstract, autori, cta, href }) {
 
       <a
         href={href}
-        className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#2B65AF] px-4 py-3 text-sm font-semibold text-white hover:brightness-95"
+        className="mt-auto inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#2B65AF] px-4 py-3 text-sm font-semibold text-white hover:brightness-95"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
           <path
@@ -242,7 +242,7 @@ function CardReport({ titolo, data, descrizione, autori, cta, href }) {
 
       <a
         href={href}
-        className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#2B65AF] px-4 py-3 text-sm font-semibold text-white hover:brightness-95"
+        className="mt-auto inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#2B65AF] px-4 py-3 text-sm font-semibold text-white hover:brightness-95"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
           <path
