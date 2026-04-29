@@ -183,48 +183,52 @@ function CardBase({ children }) {
 function CardArticolo({ titolo, data, abstract, autori, cta, href }) {
   return (
     <CardBase>
-      <div className="text-lg font-semibold">{titolo}</div>
-      <div className="mt-1 text-sm text-slate-500">{data}</div>
+      <div>
+        <div className="text-lg font-semibold">{titolo}</div>
+        <div className="mt-1 text-sm text-slate-500">{data}</div>
 
-      <div className="mt-6 text-sm text-slate-600 line-clamp-3">{abstract}</div>
+        <div className="mt-6 text-sm text-slate-600 line-clamp-3">
+          {abstract}
+        </div>
 
-{autori && autori.trim() !== "" && (
-  <>
-    <div className="mt-6 text-sm font-semibold">Authors:</div>
-    <div className="mt-1 text-sm text-slate-600">{autori}</div>
-  </>
-)}
-</div>
+        {autori && autori.trim() !== "" && (
+          <>
+            <div className="mt-6 text-sm font-semibold">Authors:</div>
+            <div className="mt-1 text-sm text-slate-600">{autori}</div>
+          </>
+        )}
+      </div>
 
-<div className="mt-auto pt-8">
-      <a
-        href={href}
-        target="_blank"
-        rel="noreferrer"
-        className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#2B65AF] px-4 py-3 text-sm font-semibold text-white hover:brightness-95"
-      >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-          <path
-            d="M14 3h7v7"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          <path
-            d="M10 14 21 3"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          <path
-            d="M21 14v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h6"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-        </svg>
-        {cta}
-      </a>
+      <div className="mt-auto pt-8">
+        <a
+          href={href}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#2B65AF] px-4 py-3 text-sm font-semibold text-white hover:brightness-95"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M14 3h7v7"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+            <path
+              d="M10 14 21 3"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+            <path
+              d="M21 14v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h6"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+          </svg>
+          {cta}
+        </a>
+      </div>
     </CardBase>
   );
 }
