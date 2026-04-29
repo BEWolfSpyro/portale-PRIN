@@ -188,12 +188,8 @@ function CardArticolo({ titolo, data, abstract, autori, cta, href }) {
 
       <div className="mt-6 text-sm text-slate-600 line-clamp-3">{abstract}</div>
 
-{autori && autori.trim() !== "" && (
-  <>
-    <div className="mt-6 text-sm font-semibold">Authors:</div>
-    <div className="mt-1 text-sm text-slate-600">{autori}</div>
-  </>
-)}
+      <div className="mt-6 text-sm font-semibold">Authors:</div>
+      <div className="mt-1 text-sm text-slate-600">{autori}</div>
 
       <a
         href={href}
@@ -233,12 +229,8 @@ function CardReport({ titolo, data, descrizione, autori, cta, href }) {
 
       <div className="mt-6 text-sm text-slate-600 line-clamp-3">{descrizione}</div>
 
-{autori && autori.trim() !== "" && (
-  <>
-    <div className="mt-6 text-sm font-semibold">Authors:</div>
-    <div className="mt-1 text-sm text-slate-600">{autori}</div>
-  </>
-)}
+      <div className="mt-6 text-sm font-semibold">Authors:</div>
+      <div className="mt-1 text-sm text-slate-600">{autori}</div>
 
       <a
         href={href}
