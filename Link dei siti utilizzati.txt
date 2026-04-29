@@ -1,0 +1,14 @@
+Sito:
+https://portale-prin.vercel.app/
+
+Frontend:
+https://vercel.com/cosimo-iurlaros-projects/portale-prin/deployments
+
+Repository GitHub:
+https://github.com/BEWolfSpyro/portale-PRIN/tree/main
+
+Backend: (che va in sleep perché gratuito)
+https://dashboard.render.com/login
+
+Database: ClusterSCORET
+https://cloud.mongodb.com/v2/6967c32e825e4c082a28dbcf#/clusters
