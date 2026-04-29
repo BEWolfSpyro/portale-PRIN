@@ -154,7 +154,6 @@ Smart COmmunities for Resilient Energy Transition - SCORET </h1>
       <CardReport
         key={l.id}
         titolo={l.title}
-        data={new Date(l.created_at).toLocaleDateString("it-IT")}
         descrizione={l.description}
         autori={l.authors}
         cta="Go to the guideline"
